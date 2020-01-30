@@ -1,0 +1,16 @@
+---
+# tasks file for jenkins
+#
+
+- name: Instalando dependencias
+  apt: name=openjdk update_cache=yes state=present
+
+- name: Adicionando a chave do jenkins
+  apt_key: url="https://pkg.jenkins.io/debian/jenkins.io.key" state=present
+
+- name: Adicionando o repositorio
+  shell: sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+
+- name: Instalando o jenkins
+  apt: name=jenkins update_cache=yes state=present
+

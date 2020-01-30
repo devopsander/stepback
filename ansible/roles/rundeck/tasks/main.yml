@@ -1,0 +1,16 @@
+---
+# tasks file for rundeck
+
+- name: Instalando dependencias
+  apt: name=openjdk-8-jre-headless update_cache=yes state=present
+
+- name: Pegando o arquivo
+  get_url:
+   url: "https://dl.bintray.com/rundeck/rundeck-deb/rundeck_3.0.9.20181127-1.201811291844_all.deb"
+   dest: /tmp/rundeck.deb
+
+- name: Instalando o rundeck
+  apt:
+   deb: /tmp/rundeck.deb
+   state: present
+

@@ -1,0 +1,7 @@
+---
+- name: Instalando Infra de automação
+  hosts: clone-python-group
+  roles:
+          #   - jenkins
+          #   - rundeck
+   - gitlab  

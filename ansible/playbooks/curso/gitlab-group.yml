@@ -1,0 +1,5 @@
+---
+- name: Criando a infra devops
+  hosts: clone-python-group
+  roles:
+   - gitlab
