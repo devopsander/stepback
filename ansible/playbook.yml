@@ -1,0 +1,18 @@
+---
+# Primeiro playbook
+
+- name: Meu Primeiro playbook
+  hosts: all
+  tasks: 
+    - name: Atualizar resolv.conf
+      copy: src=resolv.conf dest=/etc/resolv.conf
+
+- name: Garantia de pacotes
+  hosts: all
+  tasks:
+    - name: Instalando pacotes
+      apt: name={{ item }} update_cache=yes state=present
+      with_items:
+           - vim
+           - nano
+           - dnsutils      

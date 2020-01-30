@@ -1,0 +1,14 @@
+---
+# Playbook condicional
+
+- name: Exemplo de operadores
+  hosts: all
+
+  tasks:
+    - name: Testando existencia de condicional
+      command: test -f /etc/profile.d/papodesysadmin
+      register: result
+      ignore_errors: yes
+    - name: Configurando Variavel de Ambiente
+      shell: echo "export PAPO=/var/papo" > /etc/profile.d/papodesysadmin
+      when: result.rc == 0

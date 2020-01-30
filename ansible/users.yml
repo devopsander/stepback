@@ -1,0 +1,10 @@
+---
+#Criar um usuário
+
+- name: Criando um usuário
+  hosts: all
+  vars:
+    - username: sysadmin
+  tasks:
+    - name: Criando usuário no Servidor
+      user: name={{ username }} shell=/bin/bash createhome=yes      
